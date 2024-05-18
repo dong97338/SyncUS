@@ -10,6 +10,7 @@ import {
 	query,
 	where,
 	getDocs,
+	setDoc,
 } from 'firebase/firestore'
 
 export default class ChatbotUseCase {
@@ -27,32 +28,14 @@ export default class ChatbotUseCase {
 
 	//
 	async userQuery(
-		userInput: string,
+		history: { role: string; content: string }[],
 		userKey: number,
 		teamCode: number,
 		date: Date,
 	): Promise<CodeResponse> {
-		const sessionData = this.sessions.get(userKey)
-		if (!sessionData) {
-			return new CodeResponse(null, 'SESSION_NOT_FOUND', {})
-		}
-
-		sessionData.history.push({ role: 'user', content: userInput })
-
 		const open_ai_service = new OpenAIService()
-		const response = await open_ai_service.getAnswer(sessionData.history)
-
-		if (response.errorCode === null) {
-			sessionData.history.push({
-				role: 'assistant',
-				content: response.result,
-			})
-			await this.saveSession(
-				userKey,
-				sessionData.sessionId,
-				sessionData.history,
-			)
-		}
+    console.log('updated history', history)
+		const response = await open_ai_service.getAnswer(history)
 
 		return new CodeResponse(
 			response.result,
@@ -120,6 +103,25 @@ export default class ChatbotUseCase {
 			Result.SUCCESS,
 			'세션 리스팅 성공',
 			querySnapshot,
+		)
+	}
+
+	async updateSession(
+		sessionId: string,
+		userKey: number,
+		sessionName: string,
+		sessionData: any,
+	): Promise<CodeResponse> {
+		const docRef = doc(db, 'session', sessionId)
+    await setDoc(docRef, {
+        userKey,
+        sessionName,
+        sessionData,
+    }, { merge: true });
+		return new CodeResponse(
+			Result.SUCCESS,
+			'세션 업데이트 성공',
+			sessionData,
 		)
 	}
 
