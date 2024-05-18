@@ -13,7 +13,7 @@ import {
 } from 'firebase/firestore'
 import { db } from '../firebase'
 
-export default class QuestionRepository {
+export default class AnswerRepository {
 	// async upload(questionData: Question): Promise<CodeResponse> {
 	// 	try {
 	// 		// const time = new Date()
@@ -33,20 +33,29 @@ export default class QuestionRepository {
 	// 	}
 	// }
 
-	async read(questionId: string): Promise<CodeResponse> {
+	async read(userKey: string, questionKey: string): Promise<CodeResponse> {
 		try {
-			const docRef = doc(db, 'questions', questionId)
-			const docSnap = await getDoc(docRef)
-			if (!docSnap.exists()) {
+			const answersRef = collection(db, 'answers')
+			const q = query(
+				answersRef,
+				where('userKey', '==', userKey),
+				where('questionKey', '==', questionKey),
+			)
+
+			const querySnapshot = await getDocs(q)
+			if (querySnapshot.empty) {
 				return new CodeResponse(
 					Result.ERROR,
 					'DATA_QR_READ_FAIL',
-					'No such document!',
+					'No matching documents!',
 				)
 			}
+
+			const docData = querySnapshot.docs[0].data()
+
 			return new CodeResponse(Result.SUCCESS, 'DATA_QR_READ_SUCCESS', {
-				id: docSnap.id,
-				...docSnap.data(),
+				id: querySnapshot.docs[0].id,
+				...docData,
 			})
 		} catch (error) {
 			return new CodeResponse(Result.ERROR, 'DATA_QR_READ_FAIL', error)

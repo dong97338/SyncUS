@@ -4,17 +4,13 @@ import QuestionRepository from '@/data/repository/question_repository'
 
 // 오늘의 질문 가져오기
 export default class GetTodaysQuestionUseCase {
-	async getQuestion(
-		isFirstQuestion: boolean,
-		userId: number,
-		date: Date,
-	): Promise<CodeResponse> {
+	async getQuestion(userId: string, teamId: string): Promise<CodeResponse> {
 		// 질문리스트DB에서 오늘의 질문을 가져옴
-		// input: isFirstQuestion: boolean, userId: number, date: Date
+		// input: userId: number, teamId: string
 		// output: qusetionId: number
 
 		const question_repository = new QuestionRepository()
-		const response = await question_repository.readRandomQuestion()
+		const response = await question_repository.read()
 
 		return new CodeResponse(
 			response.result,
@@ -23,11 +19,11 @@ export default class GetTodaysQuestionUseCase {
 		)
 	}
 	uploadAnswer(
-		questionId: number,
+		questionId: string,
 		userResponse: string,
-		userId: number,
+		userId: string,
 		isPrivate: boolean,
-		teamCode: number,
+		teamCode: string,
 		date: Date,
 	): CodeResponse {
 		try {
@@ -40,7 +36,7 @@ export default class GetTodaysQuestionUseCase {
 			return new CodeResponse(Result.ERROR, '실패', error)
 		}
 	}
-	getHistory(userId: number): CodeResponse {
+	getHistory(userId: string): CodeResponse {
 		try {
 			// 지금까지 내가 한 답변 모아 출력
 			// input: userId: number

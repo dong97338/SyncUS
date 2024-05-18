@@ -1,6 +1,4 @@
 import CodeResponse from '@/app/code_response'
-import { Question, Result } from '@/app/types'
-import QuestionModel from '@/domain/model/question_model'
 import {
 	doc,
 	collection,
@@ -12,6 +10,7 @@ import {
 	getDoc,
 } from 'firebase/firestore'
 import { db } from '../firebase'
+import { Result } from '@/app/types'
 
 export default class QuestionRepository {
 	// async upload(questionData: Question): Promise<CodeResponse> {
@@ -33,9 +32,9 @@ export default class QuestionRepository {
 	// 	}
 	// }
 
-	async read(questionId: string): Promise<CodeResponse> {
+	async read(teamId: string): Promise<CodeResponse> {
 		try {
-			const docRef = doc(db, 'questions', questionId)
+			const docRef = doc(db, 'team', teamId)
 			const docSnap = await getDoc(docRef)
 			if (!docSnap.exists()) {
 				return new CodeResponse(
