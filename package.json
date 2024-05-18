@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ahaui/css": "^2.1.6",
+    "@ahaui/react": "^2.1.6",
+    "@heroicons/react": "^2.1.3",
     "firebase": "^10.12.0",
     "next": "14.2.3",
     "openai": "^4.47.1",
