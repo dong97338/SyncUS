@@ -1,6 +1,23 @@
+'use client'
+
 import Image from "next/image";
+import { useState } from "react";
+import ChatbotUseCase from "@/domain/use_case/ChatbotUseCase"; // 경로를 실제 파일 경로에 맞게 조정하세요
 
 export default function Home() {
+  const [userInput, setUserInput] = useState("");
+  const [response, setResponse] = useState("");
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setUserInput(event.target.value);
+  };
+
+  const handleSubmit = async () => {
+    const chatbotUseCase = new ChatbotUseCase();
+    const result = await chatbotUseCase.userQuery(userInput, 1, 1, new Date()); // userId와 teamCode는 필요에 맞게 조정하세요
+    setResponse(result.payload);
+  };
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
@@ -108,6 +125,31 @@ export default function Home() {
           </p>
         </a>
       </div>
+
+      {/* 질문 입력란과 제출 버튼 */}
+      <div className="w-full max-w-md mx-auto mt-8">
+        <input
+          type="text"
+          value={userInput}
+          onChange={handleInputChange}
+          placeholder="Enter your question"
+          className="w-full p-2 border border-gray-300 rounded mb-4"
+        />
+        <button
+          onClick={handleSubmit}
+          className="w-full p-2 bg-blue-500 text-white rounded"
+        >
+          Submit
+        </button>
+      </div>
+
+      {/* 답변 출력란 */}
+      {response && (
+        <div className="w-full max-w-md mx-auto mt-8 p-4 border border-gray-300 rounded">
+          <h3 className="text-xl font-semibold">Response:</h3>
+          <p>{response}</p>
+        </div>
+      )}
     </main>
   );
 }
