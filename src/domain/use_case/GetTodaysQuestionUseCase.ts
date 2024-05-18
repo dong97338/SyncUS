@@ -1,6 +1,6 @@
 import CodeResponse from '@/app/code_response'
 import { Result } from '@/app/types'
-import QuestionRepository from '@/data/repository/question_repository'
+import CreateNewQuestion from '@/data/service/create_new_question_service'
 
 // 오늘의 질문 가져오기
 export default class GetTodaysQuestionUseCase {
@@ -9,8 +9,11 @@ export default class GetTodaysQuestionUseCase {
 		// input: userId: number, teamId: string
 		// output: qusetionId: number
 
-		const question_repository = new QuestionRepository()
-		const response = await question_repository.read()
+		const create_new_question_service = new CreateNewQuestion()
+		const response = await create_new_question_service.create(
+			userId,
+			teamId,
+		)
 
 		return new CodeResponse(
 			response.result,

@@ -8,11 +8,12 @@ import {
 	where,
 	limit,
 	getDoc,
+	updateDoc,
 } from 'firebase/firestore'
 import { db } from '../firebase'
 import { Result } from '@/app/types'
 
-export default class QuestionRepository {
+export default class TeamRepository {
 	// async upload(questionData: Question): Promise<CodeResponse> {
 	// 	try {
 	// 		// const time = new Date()
@@ -49,6 +50,25 @@ export default class QuestionRepository {
 			})
 		} catch (error) {
 			return new CodeResponse(Result.ERROR, 'DATA_QR_READ_FAIL', error)
+		}
+	}
+	async updateLastQuestionId(
+		teamId: string,
+		lastQuestionId: string,
+	): Promise<CodeResponse> {
+		try {
+			const docRef = doc(db, 'team', teamId)
+			await updateDoc(docRef, {
+				lastQuestionId: lastQuestionId,
+				answeredUserList: [],
+			})
+			return new CodeResponse(
+				Result.SUCCESS,
+				'DATA_QR_UPDATE_SUCCESS',
+				'Last question ID updated successfully',
+			)
+		} catch (error) {
+			return new CodeResponse(Result.ERROR, 'DATA_QR_UPDATE_FAIL', error)
 		}
 	}
 }
