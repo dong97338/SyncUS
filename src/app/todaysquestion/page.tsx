@@ -27,9 +27,10 @@ const Frame: FunctionComponent = () => {
 
 	const renderStatusBar = () => {
 		const bars = []
+		let isActiveCount = notEnough ? numResponses : totalBars
 
 		for (let i = 0; i < totalBars; i++) {
-			const isActive = i < numResponses
+			const isActive = i < isActiveCount
 			bars.push(
 				<div
 					key={i}
@@ -55,10 +56,29 @@ const Frame: FunctionComponent = () => {
 	const [notEnough, setNotEnough] = useState(true)
 
 	const [showPopup, setShowPopup] = useState(true)
+	const [showWarning, setShowWarning] = useState(false)
 
 	const togglePopup = () => {
 		setShowPopup(!showPopup)
 		setNotEnough(!notEnough)
+		setShowWarning(true)
+	}
+
+	const WarningPopup = () => {
+		return (
+			<div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+				<div className="bg-white p-4 rounded-lg shadow-lg">
+					<h2 className="text-lg font-bold">답변이 열렸습니다.</h2>
+					<p>"우리"의 답변을 확인해보세요!</p>
+					<button
+						className="mt-4 bg-blue-500 text-white py-2 px-4 rounded"
+						onClick={() => setShowWarning(false)}
+					>
+						확인
+					</button>
+				</div>
+			</div>
+		)
 	}
 
 	const PopupWindow = () => {
@@ -96,12 +116,12 @@ const Frame: FunctionComponent = () => {
 				}}
 			>
 				<h2 className="text-lg font-bold">나의 대답</h2>
-				<input
-					type="text"
-					placeholder="  답변을 입력하세요"
+				<textarea
+					placeholder=" 답변을 입력하세요"
 					className="w-full p-2 h-32 border border-gray-400 rounded mt-4 px-0.5"
 					value={inputValue} // Bind the input to the state
 					onChange={handleInputChange} // Handle changes
+					style={{ lineHeight: '1.5' }}
 				/>
 				<button
 					className="w-full p-2 mt-4 bg-blue-500 text-white py-3 px-4 rounded"
@@ -113,6 +133,10 @@ const Frame: FunctionComponent = () => {
 			</div>
 		)
 	}
+
+	const responseText = notEnough
+		? `${numResponses}명이 답변했어요.`
+		: '모두 답변했어요!'
 
 	return (
 		<div className="w-full relative bg-flowkit-white h-[980px] overflow-hidden text-left text-lg text-type-base font-pretendard">
@@ -144,7 +168,7 @@ const Frame: FunctionComponent = () => {
 				</div>
 
 				<div className="absolute top-[148px] left-[calc(50%_-_37.5px)]">
-					{numResponses}명이 답변했어요.
+					{responseText}
 				</div>
 				<div className="absolute top-[183px] left-[calc(50%_-_117.5px)] w-[236px] flex flex-row items-center justify-center gap-[2px]">
 					{renderStatusBar()}
@@ -153,6 +177,7 @@ const Frame: FunctionComponent = () => {
 			<div className="absolute top-[339px] left-[92px] flex flex-row items-center justify-start">
 				<div className="w-6 h-6" />
 			</div>
+
 			<div>{showPopup && <PopupWindow />}</div>
 
 			<div
@@ -233,14 +258,14 @@ const Frame: FunctionComponent = () => {
 								/>
 								<div className="relative">이준형 개발자</div>
 							</div>
-							<div className="w-[275px] relative text-base leading-[140%] text-type-base2 inline-block h-[110px] shrink-0 z-[1]">
+							<div className="w-[275px] relative text-base leading-[140%] text-type-base2 inline-block h-[110px] shrink-0 ">
 								피드백은 직설적으로 주고받는 것이 좋다고
 								생각합니다. 문제를 명확하게 짚어주고 개선할 점을
 								분명히 알려주는 방식이 가장 효과적이에요.
 								불필요한 오해를 줄일 수 있고, 빠르게 개선할 수
 								있죠.
 							</div>
-							<div className="w-[275px] !m-[0] absolute top-[142px] left-[0px] flex flex-row items-center justify-start z-[2]">
+							<div className="w-[275px] !m-[0] absolute top-[142px] left-[0px] flex flex-row items-center justify-start ">
 								<div className="flex-1 h-6 overflow-hidden" />
 							</div>
 						</div>
@@ -262,6 +287,7 @@ const Frame: FunctionComponent = () => {
 							</div>
 							<div className="w-[275px] !m-[0] absolute top-[81px] left-[0px] h-[52px] z-[2]" />
 						</div>
+						<div>{showWarning && <WarningPopup />}</div>
 					</div>
 				</div>
 				<div className="absolute top-[517px] left-[0px] w-[375px] h-[89px] text-center text-base text-flowkit-white">
