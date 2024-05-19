@@ -4,7 +4,6 @@ import '@ahaui/css/dist/index.min.css'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import ChatbotUseCase from '@/domain/use_case/ChatbotUseCase' // Ensure the path is correct
-import { CodeResponse, Result } from '@/app/types'
 import FrameComponent1 from '@/presentation/components/frame/frame-component1'
 import FrameComponent2 from '@/presentation/components/frame/frame-component2'
 import FrameComponent3 from '@/presentation/components/frame/frame-component3'
