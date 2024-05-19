@@ -14,7 +14,7 @@ import { BubbleChat } from '@ahaui/react'
 import { ListBulletIcon } from '@heroicons/react/24/outline'
 
 interface Message {
-  role: 'user' | 'bot';
+  role: 'user' | 'assistant';
   content: string;
 }
 
