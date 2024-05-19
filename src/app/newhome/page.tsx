@@ -2,7 +2,7 @@
 import TeamRepository from '@/data/repository/team_repository'
 import { FunctionComponent, useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import './styles.css'
+import '../styles.css'
 
 const Frame: FunctionComponent = () => {
 	let teamId = 'xxxxxxxx'
