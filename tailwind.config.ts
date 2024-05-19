@@ -13,6 +13,8 @@ module.exports = {
 				c9aff: '#4c9aff',
 				gray: '#252525',
 				'type-base': '#636363',
+				'type-white-background': '#a1a1a1',
+				'type-base2': '#8f8f8f',
 			},
 			spacing: {},
 			fontFamily: {
@@ -25,6 +27,7 @@ module.exports = {
 		fontSize: {
 			base: '16px',
 			xs: '12px',
+			sm: '14px',
 			lg: '18px',
 			inherit: 'inherit',
 		},
