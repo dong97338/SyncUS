@@ -125,16 +125,6 @@ export default class ChatbotUseCase {
 		)
 	}
 
-	async saveSession(
-		userId: number,
-		sessionId: string,
-		history: { role: string; content: string }[],
-	): Promise<void> {
-		await db
-			.collection('sessions')
-			.doc(sessionId)
-			.update({ messages: history })
-	}
 
 	summarizeInitialMessage(message: string): string {
 		return message.substring(0, 20)
