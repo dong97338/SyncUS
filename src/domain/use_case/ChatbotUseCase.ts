@@ -1,6 +1,6 @@
 import { db } from '@/data/firebase/index.tsx'
 import CodeResponse from '@/app/code_response'
-import OpenAIService from '@/data/service/OpenAIService'
+import OpenAIService from '@/data/service/open_ai_service'
 import { Result } from '@/app/types'
 import {
 	collection,
@@ -16,13 +16,13 @@ import {
 export default class ChatbotUseCase {
 	private sessions: Map<
 		number,
-		{ sessionId: string; history: { role: string; content: string }[] }
+		{ sessionId: string; history: { role: 'user'|'assistant'; content: string }[] }
 	>
 
 	constructor() {
 		this.sessions = new Map<
 			number,
-			{ sessionId: string; history: { role: string; content: string }[] }
+			{ sessionId: string; history: { role: 'user'|'assistant'; content: string }[] }
 		>()
 	}
 
