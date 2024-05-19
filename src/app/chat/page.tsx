@@ -104,7 +104,7 @@ export default function Home() {
   const fetchSessions = async () => {
     const result = await chatbotUseCase.listSessions(userKey)
     setSessions(
-      result.payload.docs.map((doc: Array<{ id: string; data: () => { sessionName: string } }>) => ({ id: doc.id, sessionName: doc.data().sessionName })),
+      result.payload.docs.map((doc: { id: string; data: () => { sessionName: string } }) => ({ id: doc.id, sessionName: doc.data().sessionName })),
     )
   }
 
