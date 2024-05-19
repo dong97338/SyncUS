@@ -8,7 +8,8 @@ export default class OpenAIService {
 
 	constructor() {
 		this.openai = new OpenAI({
-			apiKey: process.env.NEXT_PUBLIC_OPEN_AI_API_KEY,
+			apiKey: process.env.NEXT_PUBLIC_SOLAR_API_KEY,
+      baseURL: 'https://api.upstage.ai/v1/solar',
 			dangerouslyAllowBrowser: true,
 		})
 	}
@@ -18,7 +19,7 @@ export default class OpenAIService {
 	): Promise<CodeResponse> {
 try {
   const response = await this.openai.chat.completions.create({
-    model: 'gpt-3.5-turbo',
+    model: 'solar-1-mini-chat',
     messages: history, // Wrap history in an array
   })
   return new CodeResponse(

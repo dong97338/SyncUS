@@ -12,6 +12,7 @@ import { SidebarMenu } from '@ahaui/react'
 import './../globals.css'
 import { BubbleChat } from '@ahaui/react'
 import { ListBulletIcon } from '@heroicons/react/24/outline'
+import { query } from 'firebase/firestore'
 
 interface Message {
   role: 'user' | 'assistant';
@@ -41,9 +42,9 @@ export default function Home() {
   const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>(false) // State for sidebar visibility
   const [current, setCurrent] = useState<string>('+ New Chat')
   const [exampleQuestions, setExampleQuestions] = useState<string[]>([
-    '협업할 때 선호하는 커뮤니케이션 방식은 무엇인가요?',
-    '우리 디자이너는 어떤 피드백을 주면 좋아할까요?',
-    '팀원들과의 의견 충돌이 있을 때 어떻게 해결할까요?',
+    // '협업할 때 선호하는 커뮤니케이션 방식은 무엇인가요?',
+    // '우리 디자이너는 어떤 피드백을 주면 좋아할까요?',
+    // '팀원들과의 의견 충돌이 있을 때 어떻게 해결할까요?',
   ])
 
   const userKey = 1 // Example userKey, replace with actual logic
@@ -55,9 +56,13 @@ export default function Home() {
     setUserInput(event.target.value)
   }
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (userInput: string) => {
+    console.log('userInput', userInput  )
     const newUserMessage: Message = { role: 'user', content: userInput }
+    console.log('response', newUserMessage)
     setResponse((prev) => [...prev, newUserMessage]) // Update state with user input
+    console.log('response', [...response, newUserMessage])
+    //selectedSession
 
     let updatedResponse = [...response, newUserMessage]
     if (selectedSession) {
@@ -84,7 +89,11 @@ export default function Home() {
         teamCode,
         new Date(),
       )
-      setResponse((prev) => [...prev, result.payload])
+      
+      const {res,sessionId} = result.payload
+      console.log('res', res)
+      setSelectedSession(sessionId)
+      setResponse((prev) => [...prev, res])
     }
   }
 
@@ -117,7 +126,7 @@ export default function Home() {
   }
 
   const handleExampleQuestionClick = (question: string) => {
-    setUserInput(question)
+    setResponse([{ role: 'user', content: question }])
   }
 
   return (
@@ -134,7 +143,7 @@ export default function Home() {
               width: 360,
             }}
           >
-            <SidebarMenu.Item
+            {/* <SidebarMenu.Item
               eventKey="+ New Chat"
               onClick={() => {
                 handleNewChat()
@@ -142,7 +151,7 @@ export default function Home() {
               }}
             >
               + New Chat
-            </SidebarMenu.Item>
+            </SidebarMenu.Item> */}
 
             {sessions.map((session) => (
               <SidebarMenu.Item
@@ -198,7 +207,7 @@ export default function Home() {
               <button
                 key={index}
                 onClick={() =>
-                  handleExampleQuestionClick(question)
+                  { handleSubmit(question)}
                 }
                 className="mb-2 p-2 bg-blue-500 text-white rounded"
               >
@@ -218,7 +227,7 @@ export default function Home() {
           className="w-full p-2 border border-gray-300 rounded mb-4"
         />
         <button
-          onClick={handleSubmit}
+          onClick={()=>handleSubmit(userInput)}
           className="w-full p-2 bg-blue-500 text-white rounded"
         >
           Submit

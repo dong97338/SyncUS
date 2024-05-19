@@ -53,7 +53,7 @@ export default class ChatbotUseCase {
 		const open_ai_service = new OpenAIService()
 		//세션 생성
 		const sessionData = userInput
-		const sessionName = userInput[0].content.substring(0, 5)
+		const sessionName = userInput[0].content.substring(0, 10)
 		//세션 첫 질문에 대한 대답: {role: 'assistant', content: response.content}
 		const response = (await open_ai_service.getAnswer(sessionData)).payload
 		//히스토리에 추가
@@ -73,7 +73,7 @@ export default class ChatbotUseCase {
 		return new CodeResponse(
 			Result.SUCCESS,
 			'세션 생성 성공',
-			response.content,
+			{res: response.content, sessionId: docRef.id},
 		)
 	}
 
