@@ -15,7 +15,7 @@ import { ListBulletIcon } from '@heroicons/react/24/outline'
 import { query } from 'firebase/firestore'
 
 interface Message {
-  role: 'user' | 'assistant';
+  role: 'user' | 'assistant' | 'system';
   content: string;
 }
 
@@ -176,7 +176,7 @@ export default function Home() {
       />
       <div className="w-full max-w-md mx-auto mt-8 p-4 text-xs">
         {response.map((item, index) => (
-          <BubbleChat
+          item.role !== 'system'&&(<BubbleChat
             key={index}
             text={item.content}
             type={item.role === 'user' ? 'inbound' : 'outbound'}
@@ -189,7 +189,7 @@ export default function Home() {
                 />
               )
             }
-          />
+          />)
         ))}
         {!selectedSession && (
           <div className="flex flex-col mt-4">

@@ -16,19 +16,19 @@ import {
 export default class ChatbotUseCase {
 	private sessions: Map<
 		number,
-		{ sessionId: string; history: { role: 'user'|'assistant'; content: string }[] }
+		{ sessionId: string; history: { role: 'user'|'assistant'|'system'; content: string }[] }
 	>
 
 	constructor() {
 		this.sessions = new Map<
 			number,
-			{ sessionId: string; history: { role: 'user'|'assistant'; content: string }[] }
+			{ sessionId: string; history: { role: 'user'|'assistant'|'system'; content: string }[] }
 		>()
 	}
 
 	//
 	async userQuery(
-		history: { role: 'user'|'assistant'; content: string }[],
+		history: { role: 'user'|'assistant'|'system'; content: string }[],
 		userKey: number,
 		teamCode: number,
 		date: Date,
@@ -45,7 +45,7 @@ export default class ChatbotUseCase {
 	}
 
 	async sessionCreate(
-		userInput: { role: 'user'|'assistant'; content: string }[],
+		userInput: { role: 'user'|'assistant'|'system'; content: string }[],
 		userKey: number,
 		teamCode: number,
 		date: Date,
