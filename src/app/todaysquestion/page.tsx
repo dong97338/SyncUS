@@ -152,7 +152,7 @@ const Frame: FunctionComponent = () => {
 						className="w-2 relative h-4"
 						alt=""
 						src="/vector-18.svg"
-						onClick={() => router.push('/')}
+						onClick={() => router.push('/newhome')}
 					/>
 					<div className="relative">질문</div>
 				</div>
@@ -303,7 +303,7 @@ const Frame: FunctionComponent = () => {
 							<div className="absolute top-[0px] left-[0px] rounded-xl bg-c9aff w-[304px] h-[52px] flex flex-row items-center justify-center py-3 px-0 box-border">
 								<div
 									className="flex-1 relative"
-									onClick={() => router.push('/')}
+									onClick={() => router.push('/newhome')}
 								>
 									나가기
 								</div>
