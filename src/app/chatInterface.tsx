@@ -3,6 +3,20 @@
 import React, { useState } from 'react';
 import ChatbotUseCase from '@/domain/use_case/ChatbotUseCase'; // Adjust the import path
 
+interface Message {
+  role: 'user' | 'bot';
+  content: string;
+}
+
+interface Session {
+  id: string;
+  history: Message[];
+}
+
+interface ChatInterfaceProps {
+  session: Session;
+}
+
 function ChatInterface({ session }) {
   const [input, setInput] = useState('');
   const [history, setHistory] = useState(session ? session.history : []);
