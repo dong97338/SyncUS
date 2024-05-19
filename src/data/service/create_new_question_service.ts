@@ -12,7 +12,7 @@ const openai = new OpenAI({
 	baseURL: 'https://api.upstage.ai/v1/solar',
 	dangerouslyAllowBrowser: true,
 })
-
+//add
 export default class CreateNewQuestion {
 	static create(userId: string, teamId: string) {
 		throw new Error('Method not implemented.')
