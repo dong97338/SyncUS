@@ -9,6 +9,7 @@ const Frame: FunctionComponent = () => {
 	const [numResponses, setNumResponses] = useState(0)
 	const team_repository = new TeamRepository()
 	const router = useRouter()
+	const [storedInput, setStoredInput] = useState('')
 
 	const [forceUpdate, setForceUpdate] = useState(0) // Dummy state for forcing updates
 
@@ -106,6 +107,11 @@ const Frame: FunctionComponent = () => {
 			}
 		}
 
+		const handleButtonClick = () => {
+			setStoredInput(inputValue) // Store the current text in state
+			togglePopup() // Toggle the visibility of the popup
+		}
+
 		return (
 			<div
 				className="absolute bottom-0 left-[calc(50%_-_200px)] bg-white rounded-t-xl shadow-popup z-50"
@@ -125,8 +131,8 @@ const Frame: FunctionComponent = () => {
 				/>
 				<button
 					className="w-full p-2 mt-4 bg-blue-500 text-white py-3 px-4 rounded"
-					onClick={togglePopup}
-					disabled={!inputValue.trim()} // Disable button when input is empty or only contains whitespace
+					onClick={handleButtonClick}
+					disabled={!inputValue.trim()}
 				>
 					제출하기
 				</button>
@@ -219,11 +225,7 @@ const Frame: FunctionComponent = () => {
 								<div className="relative">이재윤 기획자</div>
 							</div>
 							<div className="w-[282px] relative text-base leading-[140%] text-type-base2 inline-block h-[107px] shrink-0 ">
-								피드백을 받을 때는 구체적인 예시를 들어주는 것이
-								가장 효과적이라고 생각해요. 예를 들어, 디자인의
-								어떤 부분이 어떻게 개선될 수 있는지를 명확히
-								설명해주면 더 이해하기 쉽고, 반영하기도
-								수월해요.
+								{storedInput}
 							</div>
 							<div className="w-[275px] h-[66px] flex flex-row items-center justify-start">
 								<div className="flex-1 h-6 overflow-hidden" />
