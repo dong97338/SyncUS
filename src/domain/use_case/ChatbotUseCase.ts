@@ -1,4 +1,4 @@
-import { db } from '@/data/firebase/index.tsx'
+import { db } from '@/data/firebase/index'
 import CodeResponse from '@/app/code_response'
 import OpenAIService from '@/data/service/open_ai_service'
 import { Result } from '@/app/types'
@@ -28,7 +28,7 @@ export default class ChatbotUseCase {
 
 	//
 	async userQuery(
-		history: { role: string; content: string }[],
+		history: { role: 'user'|'assistant'; content: string }[],
 		userKey: number,
 		teamCode: number,
 		date: Date,
@@ -45,7 +45,7 @@ export default class ChatbotUseCase {
 	}
 
 	async sessionCreate(
-		userInput: { role: string; content: string }[],
+		userInput: { role: 'user'|'assistant'; content: string }[],
 		userKey: number,
 		teamCode: number,
 		date: Date,
