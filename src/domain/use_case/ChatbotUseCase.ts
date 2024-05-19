@@ -1,6 +1,6 @@
 import { db } from '@/data/firebase/index.tsx'
 import CodeResponse from '@/app/code_response'
-import OpenAIService from '@/data/service/open_ai_service'
+import OpenAIService from '@/data/service/OpenAIService'
 import { Result } from '@/app/types'
 import {
 	collection,
