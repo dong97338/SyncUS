@@ -15,7 +15,7 @@ export default class OpenAIService {
 	}
 
 	async getAnswer(
-		history: { role: 'user'|'assistant'; content: string }[],
+		history: { role: 'user'|'assistant'|'system'; content: string }[],
 	): Promise<CodeResponse> {
 try {
   const response = await this.openai.chat.completions.create({
