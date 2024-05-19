@@ -45,15 +45,15 @@ export default class ChatbotUseCase {
 	}
 
 	async sessionCreate(
-		userInput: string,
+		userInput: { role: string; content: string }[],
 		userKey: number,
 		teamCode: number,
 		date: Date,
 	): Promise<CodeResponse> {
 		const open_ai_service = new OpenAIService()
 		//세션 생성
-		const sessionData = [{ role: 'user', content: userInput }]
-		const sessionName = userInput.substring(0, 5)
+		const sessionData = userInput
+		const sessionName = userInput[0].content.substring(0, 5)
 		//세션 첫 질문에 대한 대답: {role: 'assistant', content: response.content}
 		const response = (await open_ai_service.getAnswer(sessionData)).payload
 		//히스토리에 추가
