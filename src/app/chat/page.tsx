@@ -2,7 +2,7 @@
 
 import '@ahaui/css/dist/index.min.css'
 import Image from 'next/image'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, ChangeEvent } from 'react'
 import ChatbotUseCase from '@/domain/use_case/ChatbotUseCase' // Ensure the path is correct
 import FrameComponent1 from '@/presentation/components/frame/frame-component1'
 import FrameComponent2 from '@/presentation/components/frame/frame-component2'
@@ -32,7 +32,7 @@ export default function Home() {
 
 	const chatbotUseCase = new ChatbotUseCase()
 
-	const handleInputChange = (event) => {
+	const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
 		setUserInput(event.target.value)
 	}
 
