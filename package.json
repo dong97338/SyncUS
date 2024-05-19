@@ -3,9 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "preinstall": "npm i --legacy-peer-deps",
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build --force",
     "start": "next start",
     "lint": "next lint" 
   },
