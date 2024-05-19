@@ -163,7 +163,7 @@ export default function Home() {
             className="size-8 z-0"
           />
         }
-        sessionName={sessionName}
+        sessionName={sessionName} // Pass sessionName as a prop
       />
       <div className="w-full max-w-md mx-auto mt-8 p-4 text-xs">
         {response.map((item, index) => (

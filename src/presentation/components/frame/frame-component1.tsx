@@ -5,6 +5,7 @@ export type FrameComponent1Type = {
   /** Style props */
   divColor?: CSSProperties["color"];
   toggle: ReactNode; // Adjust the type to ReactNode
+  sessionName: string;
 };
 
 const FrameComponent1: NextPage<FrameComponent1Type> = ({ toggle, sessionName }) => {
