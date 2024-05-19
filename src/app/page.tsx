@@ -160,7 +160,12 @@ const Frame: FunctionComponent = () => {
 					</div>
 				</div>
 				<div className="absolute top-[616px] left-[calc(50%_-_167.5px)] rounded-xl bg-cornflowerblue-200 w-[335px] h-[52px] flex flex-row items-center justify-center py-3 px-8 box-border text-base">
-					<div className="flex-1 relative font-medium">질문하기</div>
+					<div
+						className="flex-1 relative font-medium"
+						onClick={() => router.push('/chat')}
+					>
+						질문하기
+					</div>
 					<div className="w-5 h-5 flex flex-row items-center justify-center p-[6.3px] box-border">
 						<img
 							className="w-[4.7px] relative h-[9.4px]"
