@@ -10,6 +10,8 @@ interface Message {
 
 interface Session {
   id: string;
+  userKey: number;
+  teamCode: number;
   history: Message[];
 }
 
@@ -17,15 +19,14 @@ interface ChatInterfaceProps {
   session: Session;
 }
 
-function ChatInterface({ session }) {
-  const [input, setInput] = useState('');
+function ChatInterface({ session }: ChatInterfaceProps) {
+  const [input, setInput] = useState([]);
   const [history, setHistory] = useState(session ? session.history : []);
 
   const handleSend = async () => {
     const chatbotUseCase = new ChatbotUseCase();
     const response = await chatbotUseCase.userQuery(input, session.userKey, session.teamCode, new Date());
-    setHistory([...history, { role: 'user', content: input }, { role: 'assistant', content: response.payload }]);
-    setInput('');
+    setHistory([...input, { role: 'bot', content: response.payload }]);
   };
 
   return (
@@ -37,7 +38,6 @@ function ChatInterface({ session }) {
           </div>
         ))}
       </div>
-      <input value={input} onChange={(e) => setInput(e.target.value)} />
       <button onClick={handleSend}>Send</button>
     </div>
   );
