@@ -9,9 +9,27 @@
     </p>
     <br>
     <div display="flex">
-      <a href="assets/PPT.pdf"><img src="assets/ButtonPPT.png" width="25%" height="25%"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="https://www.youtube.com/watch?v=h4L3SUrZ61s"><img src="assets/ButtonVideo.png" width="25%" height="25%"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="https://www.figma.com/community/file/1170373715075438188"><img src="assets/ButtonDesign.png" width="25%" height="25%"></a>
+<a href="https://example.com/ppt" target="_blank">
+  <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100" height="50" fill="#F37D45" rx="25" ry="25"/>
+    <text x="50" y="30" font-size="18" font-family="Arial" fill="white" text-anchor="middle">PPT</text>
+  </svg>
+</a>
+
+<a href="https://example.com/video" target="_blank">
+  <svg width="150" height="50" xmlns="http://www.w3.org/2000/svg">
+    <rect width="150" height="50" fill="#F37D45" rx="25" ry="25"/>
+    <text x="75" y="30" font-size="18" font-family="Arial" fill="white" text-anchor="middle">시연 영상</text>
+  </svg>
+</a>
+
+<a href="https://example.com/design" target="_blank">
+  <svg width="150" height="50" xmlns="http://www.w3.org/2000/svg">
+    <rect width="150" height="50" fill="#F37D45" rx="25" ry="25"/>
+    <text x="75" y="30" font-size="18" font-family="Arial" fill="white" text-anchor="middle">디자인 시안</text>
+  </svg>
+</a>
+
     </div>
     <br>
 </div>
