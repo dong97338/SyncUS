@@ -10,10 +10,7 @@
     <br>
 <p align="center">
   <a href="https://example.com/ppt" target="_blank">
-    <svg width="120" height="50" xmlns="http://www.w3.org/2000/svg" style="margin: 10px;">
-      <rect width="120" height="50" fill="#F37D45" rx="25" ry="25"/>
-      <text x="60" y="30" font-size="18" font-family="Arial" fill="white" text-anchor="middle" alignment-baseline="middle">PPT</text>
-    </svg>
+<img src="assets/ppt.svg">
   </a>
   
   <a href="https://example.com/video" target="_blank">
