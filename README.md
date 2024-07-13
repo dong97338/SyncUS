@@ -11,7 +11,7 @@
 	</p>
 	<br />
 	<p align="center">
-		<a href="https://example.com/ppt">
+		<a href="assets/PPT.pdf">
 			<img src="assets/ppt.svg" />
 		</a>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
