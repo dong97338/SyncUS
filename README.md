@@ -8,30 +8,29 @@
         <a href="http://asdfhjkl.vercel.app"><big>asdfhjkl.vercel.app</big></a><br>
     </p>
     <br>
-    <div display="flex">
-<a href="https://example.com/ppt" target="_blank">
-  <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
-    <rect width="100" height="50" fill="#F37D45" rx="25" ry="25"/>
-    <text x="50" y="30" font-size="18" font-family="Arial" fill="white" text-anchor="middle">PPT</text>
-  </svg>
-</a>
+<p align="center">
+  <a href="https://example.com/ppt" target="_blank">
+    <svg width="120" height="50" xmlns="http://www.w3.org/2000/svg" style="margin: 10px;">
+      <rect width="120" height="50" fill="#F37D45" rx="25" ry="25"/>
+      <text x="60" y="30" font-size="18" font-family="Arial" fill="white" text-anchor="middle" alignment-baseline="middle">PPT</text>
+    </svg>
+  </a>
+  
+  <a href="https://example.com/video" target="_blank">
+    <svg width="150" height="50" xmlns="http://www.w3.org/2000/svg" style="margin: 10px;">
+      <rect width="150" height="50" fill="#F37D45" rx="25" ry="25"/>
+      <text x="75" y="30" font-size="18" font-family="Arial" fill="white" text-anchor="middle" alignment-baseline="middle">시연 영상</text>
+    </svg>
+  </a>
 
-<a href="https://example.com/video" target="_blank">
-  <svg width="150" height="50" xmlns="http://www.w3.org/2000/svg">
-    <rect width="150" height="50" fill="#F37D45" rx="25" ry="25"/>
-    <text x="75" y="30" font-size="18" font-family="Arial" fill="white" text-anchor="middle">시연 영상</text>
-  </svg>
-</a>
+  <a href="https://example.com/design" target="_blank">
+    <svg width="150" height="50" xmlns="http://www.w3.org/2000/svg" style="margin: 10px;">
+      <rect width="150" height="50" fill="#F37D45" rx="25" ry="25"/>
+      <text x="75" y="30" font-size="18" font-family="Arial" fill="white" text-anchor="middle" alignment-baseline="middle">디자인 시안</text>
+    </svg>
+  </a>
+</p>
 
-<a href="https://example.com/design" target="_blank">
-  <svg width="150" height="50" xmlns="http://www.w3.org/2000/svg">
-    <rect width="150" height="50" fill="#F37D45" rx="25" ry="25"/>
-    <text x="75" y="30" font-size="18" font-family="Arial" fill="white" text-anchor="middle">디자인 시안</text>
-  </svg>
-</a>
-
-    </div>
-    <br>
 </div>
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
