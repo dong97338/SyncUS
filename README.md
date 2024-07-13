@@ -1,3 +1,22 @@
+# **SyncUS**
+
+<div align="center">
+   <img src="assets/Banner.png">
+    <br>
+    <br>
+    <p>군대에서 시작하는 나의 사소한 루틴 쌓기.<br>지키고 싶은 밀리루틴을 만들고 함께 인증해보세요!<br><br>
+        <a href="http://miliroutine.com"><big>miliroutine.com</big></a><br>
+        <small>(2022년 11월 한 달만 서버를 열 예정입니다)</small>
+    </p>
+    <br>
+    <div display="flex">
+      <a href="assets/PPT.pdf"><img src="assets/ButtonPPT.png" width="25%" height="25%"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="https://www.youtube.com/watch?v=h4L3SUrZ61s"><img src="assets/ButtonVideo.png" width="25%" height="25%"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="https://www.figma.com/community/file/1170373715075438188"><img src="assets/ButtonDesign.png" width="25%" height="25%"></a>
+    </div>
+    <br>
+</div>
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
