@@ -4,8 +4,8 @@
    <img src="assets/Banner.png">
     <br>
     <br>
-    <p>군대에서 시작하는 나의 사소한 루틴 쌓기.<br>지키고 싶은 밀리루틴을 만들고 함께 인증해보세요!<br><br>
-        <a href="http://miliroutine.com"><big>miliroutine.com</big></a><br>
+    <p><br>맞춤형 질문을 통해 서로를 알아가보세요!<br><br>
+        <a href="http://asdfhjkl.vercel.app"><big>asdfhjkl.vercel.app</big></a><br>
         <small>(2022년 11월 한 달만 서버를 열 예정입니다)</small>
     </p>
     <br>
