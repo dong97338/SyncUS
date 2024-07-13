@@ -4,7 +4,7 @@
    <img src="assets/Banner.png">
     <br>
     <br>
-    <p><br>맞춤형 질문을 통해 서로를 알아가보세요!<br><br>
+    <p>우리 팀의 소통 공간<br>맞춤형 질문을 통해 서로를 알아가보세요!<br><br>
         <a href="http://asdfhjkl.vercel.app"><big>asdfhjkl.vercel.app</big></a><br>
         <small>(2022년 11월 한 달만 서버를 열 예정입니다)</small>
     </p>
