@@ -11,13 +11,15 @@
 	</p>
 	<br />
 	<p align="center">
-		<a href="https://example.com/ppt" target="_blank">
+		<a href="https://example.com/ppt">
 			<img src="assets/ppt.svg" />
 		</a>
-		<a href="https://example.com/video" target="_blank">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="https://example.com/video">
 			<img src="assets/시연 영상.svg" />
 		</a>
-		<a href="https://example.com/design" target="_blank">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="https://example.com/design">
 			<img src="assets/디자인 시안.svg" />
 		</a>
 	</p>

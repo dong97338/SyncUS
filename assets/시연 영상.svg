@@ -1,4 +1,4 @@
 <svg width="200" height="80" xmlns="http://www.w3.org/2000/svg">
-  <rect width="200" height="80" fill="#F37D45" rx="40" ry="40"/>
+  <rect width="200" height="80" fill="#4C9AFF" rx="40" ry="40"/>
   <text x="100" y="40" font-size="24" font-family="Arial" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="central">시연 영상</text>
 </svg>
