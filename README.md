@@ -6,7 +6,7 @@
 	<br />
 	<p>
 		우리 팀의 소통 공간<br />맞춤형 질문을 통해 서로를 알아가보세요!<br /><br />
-		<a href="http://sync-us.vercel.app"><big>asdfhjkl.vercel.app</big></a
+		<a href="http://sync-us.vercel.app"><big>sync-us.vercel.app</big></a
 		><br />
 	</p>
 	<br />
@@ -19,7 +19,7 @@
 			<img src="assets/시연 영상.svg" />
 		</a>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="https://example.com/design">
+		<a href="https://www.figma.com/design/tOX4R9TJvb5tlEcXH2VSka/Project-for-Sync?node-id=43-253">
 			<img src="assets/디자인 시안.svg" />
 		</a>
 	</p>
