@@ -15,7 +15,7 @@
 			<img src="assets/ppt.svg" />
 		</a>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="https://example.com/video">
+		<a href="https://youtube.com/shorts/Ppv1x-yG5mw?feature=share">
 			<img src="assets/시연 영상.svg" />
 		</a>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
